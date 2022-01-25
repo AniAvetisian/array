@@ -11,12 +11,13 @@ class my_string
 			
 	public:
 		int get_size();
-		void append(std::string new_str);
-		bool operator=(const std::string& m_str);
-		void operator+(const std::string& m_str);
-		void operator<(const std::string& m_str);
-		//void operator+=(const std::string& m_str);
-		void operator[](const int& index);
-		//void swap(std::string m_str);
+		std::string append(std::string new_str);
+		bool operator==(my_string& obj);
+		std::string operator=(const my_string& obj);
+		std::string operator+(const my_string& obj);
+		bool operator<(const my_string& obj);
+		std::string operator+=(const my_string& obj);
+		std::char operator[](const int& index);
+		/*std::string swap(std::string& new_string);*/
 };
 #endif	

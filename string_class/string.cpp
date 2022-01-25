@@ -16,17 +16,19 @@ int my_string::get_size() {
 	return str.length();
 }
 
-void my_string::append(std::string new_str) {
+std::string my_string::append(std::string new_str) {
 	str.append(new_str);
-	std::cout << str <<std::endl;
+	return str;
 }
 
-bool my_string::operator=(const std::string& m_str){
-	if (str.length()!=m_str.length()){
+
+
+bool my_string::operator==(my_string& obj){
+	if (str.length()!=obj.get_size()){
 		return false;
 	}
 	for (int i=0;i<str.length();i++){
-		if (str[i]==m_str[i]) {
+		if (str[i]==obj.str[i]) {
 			continue;
 		}else {
 			return false;
@@ -36,33 +38,49 @@ bool my_string::operator=(const std::string& m_str){
 	
 }
 
-void my_string::operator+(const std::string& m_str) {
-
-	std::cout<<str+m_str<<std::endl;
+std::string my_string::operator=(const my_string& obj) {
+	str=obj.str;
+	return str;
 }
-void my_string::operator<(const std::string& m_str) {
-	int count=0;
+
+
+
+
+std::string my_string::operator+(const my_string& obj) {
+
+	return str+obj.str;
+}
+bool my_string::operator<(const my_string& obj) {
+
 	for (int i=0;i<str.length();i++){
-		count+=str[i];
+		if (str[i]==obj.str[i]) {
+			continue;
+		} else  {
+			if(str[i]<obj.str[i]) {
+				return true;
+			}
+			}
 	}
-	int count1=0;
-	for (int j=0;j<m_str.length();j++) {
-		count1+=m_str[j];
-	}
-	if (count<count1) {
-
-	std::cout <<"Firs string < second string "<<std::endl;
-	}
-	std::cout <<"Firs string > second string "<< std::endl;
-	if (count == count1) {
-	std::cout << "Firs string = second string "<< std::endl;
-	}
+	return false;
 }
-		
-void my_string::operator[](const int& index) {
+
+std::string my_string::operator+=(const my_string& obj) {
+	
+	return str+obj.str;
+}
+
+
+
+
+
+
+
+
+
+/*void my_string::operator[](const int& index) {
 
 	std::cout <<str[index] <<std::endl;
-}
+}*/
 
 
 
