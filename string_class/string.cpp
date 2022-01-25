@@ -25,12 +25,16 @@ int my_string::get_size() {
 	return str.length();
 }
 
+<<<<<<< HEAD
 // Append function
+=======
+>>>>>>> 1eed2dc1ac7d6913864b1e449e8a5cffe53f038e
 std::string my_string::append(std::string new_str) {
 	str.append(new_str);
 	return str;
 }
 
+<<<<<<< HEAD
 // Operator ==
 bool my_string::operator==(my_string& obj){
 	if (str.length() != obj.get_size()){
@@ -38,6 +42,16 @@ bool my_string::operator==(my_string& obj){
 	}
 	for (int i = 0;i < str.length();i++){
 		if (str[i] == obj.str[i]) {
+=======
+
+
+bool my_string::operator==(my_string& obj){
+	if (str.length()!=obj.get_size()){
+		return false;
+	}
+	for (int i=0;i<str.length();i++){
+		if (str[i]==obj.str[i]) {
+>>>>>>> 1eed2dc1ac7d6913864b1e449e8a5cffe53f038e
 			continue;
 		}else {
 			return false;
@@ -47,6 +61,7 @@ bool my_string::operator==(my_string& obj){
 	
 }
 
+<<<<<<< HEAD
 // Operator =
 std::string my_string::operator=(const my_string& obj) {
 	str = obj.str;
@@ -58,6 +73,51 @@ std::string my_string::operator+(const my_string& obj) {
 
 	return str + obj.str;
 }
+=======
+std::string my_string::operator=(const my_string& obj) {
+	str=obj.str;
+	return str;
+}
+
+
+
+
+std::string my_string::operator+(const my_string& obj) {
+
+	return str+obj.str;
+}
+bool my_string::operator<(const my_string& obj) {
+
+	for (int i=0;i<str.length();i++){
+		if (str[i]==obj.str[i]) {
+			continue;
+		} else  {
+			if(str[i]<obj.str[i]) {
+				return true;
+			}
+			}
+	}
+	return false;
+}
+
+std::string my_string::operator+=(const my_string& obj) {
+	
+	return str+obj.str;
+}
+
+
+
+
+
+
+
+
+
+/*void my_string::operator[](const int& index) {
+
+	std::cout <<str[index] <<std::endl;
+}*/
+>>>>>>> 1eed2dc1ac7d6913864b1e449e8a5cffe53f038e
 
 // Operator <
 bool my_string::operator<(const my_string& obj) {
