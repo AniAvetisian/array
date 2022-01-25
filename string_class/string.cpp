@@ -1,32 +1,43 @@
 #include <iostream>
 #include "string.hpp"
 
+// Default Constructor
 my_string::my_string() {
-	str="";
+	str = "";
 }
 
+// Constructor with one argument
 my_string::my_string(std::string my_str) {
-	str=my_str;
+	str = my_str;
 }
 
+// Copy Constructor
+my_string::my_string(my_string& b){
+	str = b.str;
+}
+
+// Destructor
 my_string::~my_string() {
 }
 
+// Get Size function
 int my_string::get_size() {
 	return str.length();
 }
 
-void my_string::append(std::string new_str) {
+// Append function
+std::string my_string::append(std::string new_str) {
 	str.append(new_str);
-	std::cout << str <<std::endl;
+	return str;
 }
 
-bool my_string::operator=(const std::string& m_str){
-	if (str.length()!=m_str.length()){
+// Operator ==
+bool my_string::operator==(my_string& obj){
+	if (str.length() != obj.get_size()){
 		return false;
 	}
-	for (int i=0;i<str.length();i++){
-		if (str[i]==m_str[i]) {
+	for (int i = 0;i < str.length();i++){
+		if (str[i] == obj.str[i]) {
 			continue;
 		}else {
 			return false;
@@ -36,38 +47,52 @@ bool my_string::operator=(const std::string& m_str){
 	
 }
 
-void my_string::operator+(const std::string& m_str) {
-
-	std::cout<<str+m_str<<std::endl;
-}
-void my_string::operator<(const std::string& m_str) {
-	int count=0;
-	for (int i=0;i<str.length();i++){
-		count+=str[i];
-	}
-	int count1=0;
-	for (int j=0;j<m_str.length();j++) {
-		count1+=m_str[j];
-	}
-	if (count<count1) {
-
-	std::cout <<"Firs string < second string "<<std::endl;
-	}
-	std::cout <<"Firs string > second string "<< std::endl;
-	if (count == count1) {
-	std::cout << "Firs string = second string "<< std::endl;
-	}
-}
-		
-void my_string::operator[](const int& index) {
-
-	std::cout <<str[index] <<std::endl;
+// Operator =
+std::string my_string::operator=(const my_string& obj) {
+	str = obj.str;
+	return str;
 }
 
+// Operator +
+std::string my_string::operator+(const my_string& obj) {
 
+	return str + obj.str;
+}
 
+// Operator <
+bool my_string::operator<(const my_string& obj) {
 
+	for (int i = 0;i < str.length();i++){
+		if (str[i] == obj.str[i]) {
+			continue;
+		} else  {
+			if(str[i] < obj.str[i]) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
-		
+// Operator +=
+std::string my_string::operator+=(const my_string& obj) {
+	return str + obj.str;
+}
 
+// Operator []
+char my_string::operator[](int index) {
+	return str[index];
+}
 
+// Swap
+std::string my_string::swap(my_string& obj){
+	std::string new_value = str;
+	str=obj.str;
+	obj.str=new_value;
+	return str, obj.str;
+}
+
+// Find first of
+int my_string::find_first_of(my_string& obj){
+	return str.find(obj.str);
+}
