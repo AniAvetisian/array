@@ -27,16 +27,16 @@ class shape {
 		int get_l() {
 			return s_long;
 		}
-		virtual int area() {
+		int area() {
 		return 1;
 		};
-		virtual int moveto(int m_value) {
+		int moveto(int m_value) {
 		return 1;
 		}; 
-		virtual bool operator==(const shape& obj) {
+		bool operator==(const shape& obj) {
 		return true;
 		};
-		virtual int operator=(const shape& obj) {
+		int operator=(const shape& obj) {
 		return 1;
 		};
 };
@@ -56,16 +56,16 @@ class rectangle:public shape {
 		~rectangle() {}
 		
 	public:
-		virtual int area()  {
+		int area()  {
 			int s=l_long*l_long;
 			return s;
 		}
-        virtual int moveto(int m_value) {
+        	int moveto(int m_value) {
 			x_cord+=m_value;
 			y_cord+=m_value;
 			return x_cord, y_cord;
 		}
-        virtual bool operator==(const rectangle& obj) {
+        	bool operator==(const rectangle& obj) {
 			if (l_long==obj.l_long && x_cord==obj.x_cord && y_cord==obj.y_cord) {
 				return true;
 			}
