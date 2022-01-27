@@ -1,0 +1,3 @@
+SCRIPT_DIR=$(dirname ${BASH_SOURCE})
+export LD_LIBRARY_PATH=$SCRIPT_DIR/lib:$LD_LIBRARY_PATH
+$SCRIPT_DIR/bin/dynamic.out
