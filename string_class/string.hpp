@@ -12,15 +12,16 @@ class my_string
 	 	~my_string();
 			
 	public:
+		std::string get_str();
 		int get_size();
-		std::string append(std::string new_str);
+		my_string& append(my_string& obj);
 		bool operator==(my_string& obj);
-		std::string operator=(const my_string& obj);
-		std::string operator+(const my_string& obj);
+		my_string& operator=(const my_string& obj);
+    	my_string& operator+(const my_string& obj);
 		bool operator<(const my_string& obj);
-		std::string operator+=(const my_string& obj);
+		my_string& operator+=(const my_string& obj);
 		char operator[](int index);
-		std::string swap(my_string& obj);
+		my_string& swap(my_string& obj);
 		int find_first_of(my_string& obj);
 };
 

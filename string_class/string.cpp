@@ -20,15 +20,21 @@ my_string::my_string(my_string& b){
 my_string::~my_string() {
 }
 
+//Get string
+std::string my_string::get_str() {
+	return str;
+}
+
 // Get Size function
 int my_string::get_size() {
 	return str.length();
 }
 
 // Append function
-std::string my_string::append(std::string new_str) {
-	str.append(new_str);
-	return str;
+my_string& my_string::append(my_string& obj) {
+	str.append(obj.str);
+	
+	return *this;
 }
 
 // Operator ==
@@ -48,15 +54,16 @@ bool my_string::operator==(my_string& obj){
 }
 
 // Operator =
-std::string my_string::operator=(const my_string& obj) {
+my_string& my_string::operator=(const my_string& obj) {
 	str = obj.str;
-	return str;
+	return *this;
 }
 
 // Operator +
-std::string my_string::operator+(const my_string& obj) {
+my_string& my_string::operator+(const my_string& obj) {
 
-	return str + obj.str;
+	str + obj.str;
+	return *this;
 }
 
 // Operator <
@@ -75,8 +82,10 @@ bool my_string::operator<(const my_string& obj) {
 }
 
 // Operator +=
-std::string my_string::operator+=(const my_string& obj) {
-	return str + obj.str;
+my_string& my_string::operator+=(const my_string& obj) {
+
+	str + obj.str;
+	return *this;
 }
 
 // Operator []
@@ -85,11 +94,11 @@ char my_string::operator[](int index) {
 }
 
 // Swap
-std::string my_string::swap(my_string& obj){
+my_string& my_string::swap(my_string& obj){
 	std::string new_value = str;
 	str=obj.str;
 	obj.str=new_value;
-	return str, obj.str;
+	return *this;
 }
 
 // Find first of
