@@ -8,6 +8,7 @@ class list::node
 public:
     value_type m_value;
     node* m_next;
+	node* m_previous;
 public:
     node(value_type v, node* n)
         : m_value(v)
@@ -139,10 +140,15 @@ list::list(size_type n, const value_type& default_value)
     : m_head(nullptr)
 {
     node* current = nullptr;
+    node* end = nullptr;
     for (size_type i = 0; i < n; ++i) {
         node* new_node = new node(default_value, nullptr);
         if (current != nullptr) {
+			end = current->m_next;
             current->m_next = new_node;
+			if (end == nullptr){
+				m_last = end;
+			}
         } else {
             assert(m_head == nullptr);
             m_head = new_node;
@@ -151,7 +157,7 @@ list::list(size_type n, const value_type& default_value)
     }
 }
 
-list::list(const list& b)
+/*list::list(const list& b)
        :m_head(nullptr)
 
 {
@@ -177,6 +183,6 @@ const list& list::operator=(const list& c)
 list::~list()
 {
     // TODO
-}
+}*/
 
  

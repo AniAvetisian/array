@@ -30,7 +30,7 @@ public:
 
 private:
     node* m_head;
-
+	node* m_last;
 public:
     list();
     list(size_type n, const value_type& default_value);

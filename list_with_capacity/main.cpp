@@ -126,7 +126,7 @@ int main()
     test_pop_back();
     test_pop_front();
     test_insert();
-	test_operator();
-    test_copy_constructor();
+	//test_operator();
+    //test_copy_constructor();
 	return 0;
 }
