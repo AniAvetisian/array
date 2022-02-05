@@ -1,9 +1,7 @@
 
 EXE:=exe
-$(EXE) : main.cpp list.cpp
-	g++ -std=c++11 -g -ggdb $^  -Wall -pedantic -o $@
-
-list.cpp : list.hpp
+$(EXE) : main.cpp list.tpp list.hpp
+	g++ -std=c++11 -g -ggdb $<  -Wall -pedantic -o $@
 
 clean:
 	rm $(EXE)
