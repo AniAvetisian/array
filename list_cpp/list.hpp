@@ -37,8 +37,8 @@ public:
     template <typename C>
     bool exist_if(C c) const;
 	void bubble_sort();
-	void insertionSort();
-	void swapData(node<T> *m_next, node<T> *m_prev);
+	void insertion_sort();
+	void swap_data(node<T> *m_next, node<T> *m_prev);
 
     template <typename C>
     friend std::ostream& operator<<(std::ostream& out, const list<C>& l);

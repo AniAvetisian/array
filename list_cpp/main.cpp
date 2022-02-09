@@ -344,7 +344,7 @@ void test_bubble(){
     assert(a.at(3) == 9);
 }
 	
-void test_insertionSort(){
+void test_insertion_sort(){
 	list<int> a;
 	a.insert(a.size(), 5);
     a.insert(a.size(), 17);
@@ -354,7 +354,7 @@ void test_insertionSort(){
     assert(a.at(1) == 17);
     assert(a.at(2) == 9);
     assert(a.at(3) == 7);
-	a.insertionSort();
+	a.insertion_sort();
 	assert(a.at(0) == 5);
     assert(a.at(1) == 7);
     assert(a.at(2) == 9);
@@ -383,6 +383,6 @@ int main()
     //test_same_type();
     test_functor();
 	test_bubble();
-	test_insertionSort();
+	test_insertion_sort();
 	return 0;
 }

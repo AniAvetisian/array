@@ -298,7 +298,7 @@ const list<T>& list<T>::operator=(const list<T>& c)
 }
 template <typename T>
 
-void list<T>::swapData(node<T> *m_next, node<T> *m_prev)
+void list<T>::swap_data(node<T> *m_next, node<T> *m_prev)
 	{
 		int value = m_next->m_value;
 		m_next->m_value = m_prev->m_value;
@@ -320,7 +320,7 @@ while (task == true){
 task = false;
 while (start != nullptr && start->m_next != nullptr){
 		if (start->m_value > start->m_next->m_value) {
-			this->swapData(start, start->m_next);
+			this->swap_data(start, start->m_next);
 			// Active the next iteration
 			task = true;
 		}
@@ -333,7 +333,7 @@ start = this->m_head;
 }
 
 template <typename T>
-void list<T>::insertionSort()
+void list<T>::insertion_sort()
 {
 	node<T> *front = m_head;
 	node<T> *back = nullptr;
@@ -344,7 +344,7 @@ void list<T>::insertionSort()
               back->m_prev != nullptr &&
               back->m_value < back->m_prev->m_value)
 			{
-				this->swapData(back, back->m_prev);
+				this->swap_data(back, back->m_prev);
 				back = back->m_prev;
 			}
 		front = front->m_next;
